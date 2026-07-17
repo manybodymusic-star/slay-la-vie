@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Slaydy Curry</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Slaydy Curry</h1>
+
+<div id="hud">
+
+    <button id="home">
+        <img id="homeIcon" src="icons/home_icon.png">    
+    </button>
+
+    <div id="topHUD">
+        <div id="questTracker" class="hudBox">
+            <div class="iconBox">
+                <img id="questIcon" src="icons/quest_icon.png">
+                <span class="colon">:</span>
+                <span id="questPoints">0</span>
+            </div>
+        </div>
+
+        <div id="keyTracker" class="hudBox">
+            <div class="iconBox">
+                <img id="keyIcon" src="icons/key_icon.png">
+                <span class="colon">:</span>
+                <span id="keyCount">0</span>
+            </div>
+        </div>
+    </div>  
+
+    <div id="slayerUI"> 
+        <details id="slayerMenu"> 
+            <summary> Slayer Masters </summary>
+            <div id="slayerContainer"> </div>
+        </details>
+    </div>
+
+    <details id="saveMenu">
+        <summary><span id="saveStatus">Save</span></summary>
+        <div id="saveControls">
+            <button id="exportSave" type="button">Export</button>
+            <button id="importSave" type="button">Import</button>
+            <button id="resetSave" type="button">Reset</button>
+            <input id="importSaveFile" type="file" accept="application/json">
+        </div>
+    </details>
+
+    <details id="notesMenu">
+        <summary>Notes</summary>
+        <div id="notesPanel">
+            <div id="notesResizeHandle" aria-hidden="true"></div>
+            <textarea id="notesInput" spellcheck="true" aria-label="Notes"></textarea>
+        </div>
+    </details>
+
+    <div id="tileUI">
+        <details id="tileMenu">
+            <summary>Tiles</summary>
+            <div id="tileControls">
+                <button class="tileTypeButton resourceTileButton" data-tile-panel="Resource" type="button" aria-label="Resource tiles" title="Resource tiles">
+                    <img src="icons/skills_icon.png" alt="">
+                </button>
+                <button class="tileTypeButton questTileButton" data-tile-panel="Quest" type="button" aria-label="Quest tiles" title="Quest tiles">
+                    <img src="icons/quest_icon.png" alt="">
+                </button>
+                <button class="tileTypeButton miniquestTileButton" data-tile-panel="Miniquest" type="button" aria-label="Miniquest tiles" title="Miniquest tiles">
+                    <img src="icons/miniquest_icon.png" alt="">
+                </button>
+                <button class="tileTypeButton diaryTileButton" data-tile-panel="Diary" type="button" aria-label="Diary tiles" title="Diary tiles">
+                    <img src="icons/diary_icon.png" alt="">
+                </button>
+            </div>
+            <div id="resourceTilePanel"></div>
+        </details>
+    </div>
+    
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.js"></script>
+
+  <script src="data.js"> </script>
+  <script src="mouse.js"> </script>
+  <script src="script.js"> </script>
+  <script src="ui.js"> </script>
+  <script src="save.js"> </script>
+  <script src="render.js"> </script>
+</body>
+
+
+</html>

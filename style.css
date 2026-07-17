@@ -1,0 +1,1304 @@
+details {
+    opacity: 0.25;
+    transition: opacity 0.25s ease, max-height 0.35s ease;
+    overflow: hidden;
+    max-height: 40px;
+}
+
+details[open] {
+    opacity: 1;
+    max-height: 1000px;
+}
+
+details:hover,
+details[open] {
+    opacity: 1;
+}
+
+/* Entire page */
+body {
+    background-color: #111111;
+
+    font-family: Palatino, sans-serif;
+    color: rgba(35, 25, 15, 255);
+}
+
+/* Static UI layer */
+#uiLayer {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 1000;
+}
+
+/* Allow actual interaction with controls */
+#uiLayer select,
+#uiLayer button {
+    pointer-events: auto;
+}
+
+/* Title */
+#gameTitle {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    font-size: 36px;
+    font-weight: bold;
+
+    color: white;
+
+    z-index: 1001;
+}
+
+/* Dropdown menus */
+select {
+    position: fixed;
+
+    width: 180px;
+    height: 40px;
+
+    font-size: 18px;
+
+    background-color: #222222;
+    color: white;
+
+    border: 2px solid #555555;
+    border-radius: 8px;
+
+    padding-left: 10px;
+
+    z-index: 1001;
+}
+
+/* Example specific dropdown */
+#regionSelect {
+    top: 80px;
+    left: 20px;
+}
+
+/* Future board layer */
+#gameLayer {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+}
+
+.masterBox {
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    background-color: #1b1b1b;
+
+    border: 2px solid #444444;
+
+    border-radius: 10px;
+
+}
+
+td, th {
+
+    border-bottom: 1px solid #444444;
+    border: 1px solid #444444;
+  }
+
+
+tr {
+    background-color: #e6d3b1; /* aged parchment */
+    color: #3a2a1a;
+}
+
+
+tr:has(input:checked) 
+{background-color: rgb(129, 215, 124);}
+
+.masterInfoRow th {
+    background-color: #d7c196;
+    color: #3a2a1a;
+    font-weight: bold;
+    top: 0;
+    z-index: 6;
+}
+
+.masterInfoRow input {
+    pointer-events: none;
+}
+
+:root {
+    --slayer-task-col: 190px;
+    --slayer-combat-col: 66px;
+    --slayer-slayer-col: 66px;
+    --slayer-quest-col: 238px;
+    --slayer-check-col: 66px;
+    --slayer-table-width: calc(
+        var(--slayer-task-col) +
+        var(--slayer-combat-col) +
+        var(--slayer-slayer-col) +
+        var(--slayer-quest-col) +
+        var(--slayer-check-col)
+    );
+    --slayer-master-summary-x-padding: 4px;
+    --unlocked-color: rgb(31, 139, 64);
+    --table-header-bg: #433c31;
+    --table-header-text: #ffb84d;
+    --table-header-hover-bg: #4a4436;
+    --slayer-title-width: calc(
+        var(--slayer-task-col) -
+        var(--slayer-master-summary-x-padding) -
+        var(--slayer-master-summary-x-padding) -
+        10px
+    );
+    --tile-menu-icon-size: 32px;
+    --tile-menu-active-frame-size: 40px;
+    --resource-menu-icon-size: 38px;
+    --resource-menu-bottom-clearance: 14px;
+    --tile-icon-row-width: calc(
+        var(--tile-menu-active-frame-size) +
+        var(--tile-menu-active-frame-size) +
+        var(--tile-menu-active-frame-size) +
+        var(--tile-menu-active-frame-size) +
+        52px
+    );
+    --tile-list-name-col: 250px;
+    --tile-list-difficulty-col: 108px;
+    --tile-list-length-col: 100px;
+    --tile-list-qp-col: 92px;
+    --tile-list-status-col: 74px;
+    --tile-list-table-width: calc(
+        var(--tile-list-name-col) +
+        var(--tile-list-difficulty-col) +
+        var(--tile-list-length-col) +
+        var(--tile-list-qp-col) +
+        var(--tile-list-status-col)
+    );
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#hud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100vh;
+}
+
+
+#questTracker,
+#keyTracker {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    font-size: 32px;
+    font-family: 'Cinzel';
+    color: white;
+}
+
+#questIcon,
+#keyIcon {
+    display: flex;
+}
+
+
+
+#colon {
+    margin-right: 6px;
+}
+
+#questIcon,
+#keyIcon {
+    width: 40px;
+    height: 46px;
+    object-fit: contain;
+}
+
+
+.hudBox {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* icon ↔ number spacing */
+}
+
+
+.iconBox {
+    background: #3d382d5a;
+    color: #000000;
+    padding: 8px 12px;
+    border: 1px solid #5a5242;
+    cursor: pointer;
+    border-top: 5px solid #6f6550;
+    border-left: 5px solid #6f6550;
+    border-right: 5px solid #241f18;
+    border-bottom: 5px solid #241f18;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+summary {
+    background: #3a3428;
+    color: #ffb84d;
+    padding: 8px 12px;
+    border: 1px solid #5a5242;
+    cursor: pointer;
+    border-top: 5px solid #6f6550;
+    border-left: 5px solid #6f6550;
+    border-right: 5px solid #241f18;
+    border-bottom: 5px solid #241f18;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary:hover {
+    background: #4a4436;
+}
+
+.masterName.complete,
+.masterCounter.complete {
+    color: var(--unlocked-color);
+}
+
+#slayerContainer > details > summary {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: var(--slayer-master-summary-x-padding);
+    padding-right: var(--slayer-master-summary-x-padding);
+    width: var(--slayer-task-col);
+}
+
+#slayerContainer > details {
+    opacity: 0.5;
+}
+
+#slayerContainer > details:hover,
+#slayerContainer > details[open] {
+    opacity: 1;
+}
+
+#slayerContainer > details:not([open]) > summary {
+    width: var(--slayer-task-col);
+}
+
+#slayerContainer.hasExpandedMaster > details:not([open]) {
+    display: none;
+}
+
+.masterTitle {
+    flex: 0 0 var(--slayer-title-width);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.masterName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.masterCounter {
+    margin-left: auto;
+    text-align: right;
+    flex: 0 0 auto;
+}
+
+.masterInfoProgress {
+    display: block;
+    width: 54px;
+    height: 0.7em;
+    margin: 0 auto;
+    background: #000000;
+    border: 1px solid #b9a243;
+}
+
+.masterInfoProgressFill {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background: rgb(137, 137, 137);
+}
+
+th img {
+    height: 24px;
+    width: 24px;
+}
+
+.taskHeaderRow img {
+    position: relative;
+    top: 2px;
+}
+
+.taskHeaderRow .combatHeaderIcon {
+    height: 22px;
+    width: 22px;
+    top: 4px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 1px;
+    table-layout: fixed;
+    width: var(--slayer-table-width);
+    margin-bottom: 0;
+}
+
+.taskCol {
+    width: var(--slayer-task-col);
+}
+
+.combatCol {
+    width: var(--slayer-combat-col);
+}
+
+.slayerCol {
+    width: var(--slayer-slayer-col);
+}
+
+.questCol {
+    width: var(--slayer-quest-col);
+}
+
+.checkCol {
+    width: var(--slayer-check-col);
+}
+
+th, td {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th:nth-child(2),
+td:nth-child(2),
+th:nth-child(3),
+td:nth-child(3),
+th:nth-child(5),
+td:nth-child(5) {
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: center;
+}
+
+th:nth-child(5) input,
+td:nth-child(5) input {
+    display: block;
+    margin: 0 auto;
+}
+
+th:first-child,
+td:first-child {
+    text-align: left;
+}
+
+#slayerUI {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    display: flex;
+}
+
+#slayerMenu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0; 
+}
+
+
+
+#slayerMenu > summary {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #3a3428;
+    align-self: flex-start;
+    width: auto;
+}
+
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: var(--table-header-bg);
+    z-index: 5;
+}
+
+.taskHeaderRow th {
+    top: 34px;
+    color: var(--table-header-text);
+}
+
+.taskHeaderRow th[data-sort] {
+    cursor: pointer;
+}
+
+.taskHeaderRow th[data-sort]:hover {
+    background: var(--table-header-hover-bg);
+}
+
+
+.slayerContent {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 90px);
+    min-height: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+}
+
+
+.tableWrapper {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: 0;
+}
+
+body {
+    margin: 0;
+}
+
+
+details {
+    margin: 0;
+    padding: 0;
+}
+
+
+td:nth-child(2) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+td:first-child,
+th:first-child {
+    padding-left: 5px;
+}
+
+
+#topHUD {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 360px;
+}
+
+
+#home {
+    position: fixed;
+    top: 649px;
+    left: 1178px;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+    border: transparent;
+    background: transparent;
+
+    cursor: pointer;
+    z-index: 999;
+}
+
+#home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+#home:hover img {
+    opacity: 1;
+}
+
+#saveMenu {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+#saveMenu > summary {
+    width: max-content;
+}
+
+#saveMenu[open] {
+    max-height: none;
+    overflow: visible;
+}
+
+#saveControls {
+    background: #3a3428;
+    border: 1px solid #5a5242;
+    border-top: 5px solid #6f6550;
+    border-left: 5px solid #6f6550;
+    border-right: 5px solid #241f18;
+    border-bottom: 5px solid #241f18;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    width: max-content;
+}
+
+#saveControls button {
+    background: transparent;
+    color: hsl(36, 70%, 77%);
+    border: 0;
+    cursor: pointer;
+    font-family: Palatino, sans-serif;
+    font-size: 16px;
+    padding: 2px 4px;
+    text-shadow: 0 1px 0 #000000;
+}
+
+#saveControls button:hover {
+    color: hsl(60, 20%, 100%);
+    text-shadow: 0 0 2px #000000;
+}
+
+#saveControls #resetSave {
+    color: rgb(230, 95, 95);
+}
+
+#saveControls #resetSave:hover {
+    color: rgb(255, 145, 145);
+}
+
+#saveStatus {
+    color: #ffb84d;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+#importSaveFile {
+    display: none;
+}
+
+#notesMenu {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+#notesMenu > summary {
+    width: max-content;
+}
+
+#notesMenu[open] {
+    max-height: none;
+    overflow: visible;
+}
+
+#notesPanel {
+    background: #3a3428;
+    border: 1px solid #5a5242;
+    border-top: 5px solid #6f6550;
+    border-left: 5px solid #6f6550;
+    border-right: 5px solid #241f18;
+    border-bottom: 5px solid #241f18;
+    box-sizing: border-box;
+    padding: 8px;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    width: 280px;
+}
+
+#notesResizeHandle {
+    cursor: ns-resize;
+    height: 10px;
+    margin: -2px 0 6px;
+    position: relative;
+}
+
+#notesResizeHandle::before {
+    background: #6f6550;
+    border-bottom: 1px solid #241f18;
+    border-top: 1px solid #b9a983;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    top: 3px;
+    transform: translateX(-50%);
+    width: 42px;
+}
+
+#notesInput {
+    background: #e6d3b1;
+    border: 1px solid #5a5242;
+    box-sizing: border-box;
+    color: #3a2a1a;
+    display: block;
+    font-family: Palatino, sans-serif;
+    font-size: 15px;
+    height: 120px;
+    line-height: 1.25;
+    max-height: calc(100vh - 84px);
+    min-height: 80px;
+    padding: 6px;
+    resize: none;
+    width: 100%;
+}
+
+#notesInput:focus {
+    outline: 1px solid #ffb84d;
+}
+
+
+#tileUI {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+#tileMenu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: max-content;
+    opacity: 0.35;
+    max-height: none;
+    overflow: visible;
+}
+
+#tileMenu > summary {
+    background: #3a3428;
+    display: inline-block;
+    text-align: right;
+}
+
+#tileMenu:hover,
+#tileMenu[open] {
+    opacity: 1;
+}
+
+#tileControls {
+    align-self: flex-end;
+    background: #3a3428;
+    border: 1px solid #5a5242;
+    border-top: 5px solid #6f6550;
+    border-left: 5px solid #6f6550;
+    border-right: 5px solid #241f18;
+    border-bottom: 5px solid #241f18;
+    display: inline-grid;
+    grid-template-columns: repeat(4, var(--tile-menu-active-frame-size));
+    place-items: center;
+    width: max-content;
+    margin-left: auto;
+    gap: 8px;
+    padding: 8px;
+}
+
+#resourceTilePanel {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: max-content;
+    max-width: calc(100vw - 16px);
+    display: none;
+    margin-top: 0;
+    max-height: calc(100vh - 92px);
+    overflow: visible;
+}
+
+#resourceTilePanel.active {
+    display: block;
+}
+
+#resourceTilePanel.hasExpandedResource > details:not([open]) {
+    display: none;
+}
+
+#resourceTilePanel > details > summary {
+    align-self: flex-end;
+    box-sizing: border-box;
+    width: var(--tile-icon-row-width);
+}
+
+.resourceSummary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resourceName {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.resourceTierBadge {
+    margin-left: auto;
+    text-align: right;
+    flex: 0 0 auto;
+}
+
+.resourceName.complete,
+.resourceTierBadge.complete {
+    color: var(--unlocked-color);
+}
+
+#resourceTilePanel > details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-height: 40px;
+    opacity: 0.5;
+}
+
+#resourceTilePanel > details:hover,
+#resourceTilePanel > details[open] {
+    opacity: 1;
+}
+
+#resourceTilePanel > details[open] {
+    max-height: calc(100vh - 140px - var(--resource-menu-bottom-clearance));
+    overflow: visible;
+}
+
+#resourceTilePanel > details[open] > summary {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+}
+
+.resourceTableWrapper {
+    align-self: flex-end;
+    box-sizing: border-box;
+    max-height: calc(100vh - 140px - var(--resource-menu-bottom-clearance));
+    overflow: auto;
+    padding-bottom: var(--resource-menu-bottom-clearance);
+}
+
+.resourceTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    table-layout: fixed;
+    margin-bottom: 0;
+}
+
+.resourceTable th,
+.resourceTable td {
+    padding: 5px 7px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: pre-line;
+}
+
+.resourceTable td.resourceDataCentered {
+    text-align: center;
+}
+
+.resourceTable thead th {
+    background: var(--table-header-bg);
+    color: var(--table-header-text);
+    font-weight: bold;
+    text-align: center;
+}
+
+.resourceInfoButton {
+    background: transparent;
+    border: 1px solid var(--table-header-text);
+    border-radius: 50%;
+    color: var(--table-header-text);
+    cursor: pointer;
+    font-family: Palatino, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 18px;
+    padding: 0;
+    text-align: center;
+    width: 20px;
+}
+
+.resourceInfoButton:hover {
+    border-color: hsl(60, 20%, 100%);
+    color: hsl(60, 20%, 100%);
+}
+
+.resourceTable tbody th {
+    background: #d7c196;
+    color: #3a2a1a;
+    font-weight: bold;
+    text-align: left;
+}
+
+.resourceTable th.resourceTierUnlocked,
+.resourceTable td.resourceTierUnlocked {
+    color: var(--unlocked-color);
+}
+
+.resourceTable th.resourceTierOnBoard,
+.resourceTable td.resourceTierOnBoard {
+    color: rgb(185, 48, 48);
+}
+
+.resourceTable th.resourceTierUnavailable,
+.resourceTable td.resourceTierUnavailable {
+    color: rgb(137, 137, 137);
+}
+
+.tileListWrapper {
+    max-height: calc(100vh - 140px);
+    overflow: auto;
+}
+
+.tileListTable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    table-layout: fixed;
+    width: var(--tile-list-table-width);
+    margin-bottom: 0;
+}
+
+.tileListTable tr,
+.tileListTable tr:has(input:checked) {
+    background-color: #e6d3b1;
+}
+
+.tileListNameCol {
+    width: var(--tile-list-name-col);
+}
+
+.tileListDifficultyCol {
+    width: var(--tile-list-difficulty-col);
+}
+
+.tileListLengthCol {
+    width: var(--tile-list-length-col);
+}
+
+.tileListQPCol {
+    width: var(--tile-list-qp-col);
+}
+
+.tileListStatusCol {
+    width: var(--tile-list-status-col);
+}
+
+.tileListTable th,
+.tileListTable td {
+    padding: 5px 7px;
+    vertical-align: middle;
+}
+
+.tileListTable thead th {
+    background: var(--table-header-bg);
+    color: var(--table-header-text);
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 6;
+}
+
+.tileListTable thead th[data-sort] {
+    cursor: pointer;
+}
+
+.tileListTable thead th[data-sort]:hover {
+    background: var(--table-header-hover-bg);
+}
+
+.tileStatusHeader {
+    position: relative;
+}
+
+.tileStatusHeaderContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+}
+
+.tileStatusFilterButton {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    height: 14px;
+    padding: 0;
+    position: relative;
+    width: 14px;
+}
+
+.tileStatusFilterButton::before {
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid var(--table-header-text);
+    border-top: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    left: 4px;
+    position: absolute;
+    top: 3px;
+    transform-origin: 3px 4px;
+    transition: transform 0.15s ease, border-left-color 0.15s ease;
+    width: 0;
+}
+
+.tileStatusFilterButton:hover::before {
+    border-left-color: hsl(60, 20%, 100%);
+}
+
+.tileStatusHeader.filterOpen .tileStatusFilterButton::before {
+    transform: rotate(90deg);
+}
+
+.tileStatusFilterMenu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    z-index: 30;
+    min-width: 86px;
+    background: #3a3428;
+    border: 1px solid #5a5242;
+    border-top: 4px solid #6f6550;
+    border-left: 4px solid #6f6550;
+    border-right: 4px solid #241f18;
+    border-bottom: 4px solid #241f18;
+    padding: 5px;
+    text-align: left;
+}
+
+.tileStatusHeader.filterOpen .tileStatusFilterMenu {
+    display: block;
+}
+
+.tileStatusFilterTitle {
+    color: #ffb84d;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.tileStatusFilterOption {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    color: hsl(36, 70%, 77%);
+    cursor: pointer;
+    font-family: Palatino, sans-serif;
+    font-size: 13px;
+    padding: 2px 3px;
+    text-align: left;
+}
+
+.tileStatusFilterOption:hover {
+    color: hsl(60, 20%, 100%);
+}
+
+.tileStatusFilterOption.active {
+    color: hsl(60, 20%, 100%);
+}
+
+.tileNameHeaderContent {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    justify-content: space-between;
+}
+
+.questNameSearchButton {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    height: 18px;
+    padding: 0;
+    width: 18px;
+}
+
+.questNameSearchButton img {
+    display: block;
+    filter: brightness(1.65) contrast(1.12);
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+
+.questNameSearchButton:hover img {
+    filter: brightness(2) contrast(1.18);
+}
+
+.questNameSearchActive {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    width: 100%;
+}
+
+.questNameSearchInput {
+    background: transparent;
+    border: 0;
+    color: var(--table-header-text);
+    font-family: Palatino, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    outline: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.questNameSearchClear {
+    background: transparent;
+    border: 0;
+    color: rgb(230, 95, 95);
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-family: Palatino, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0 2px;
+}
+
+.questNameSearchClear:hover {
+    color: rgb(255, 145, 145);
+}
+
+.questNameSearchInput::selection {
+    background: #6f6550;
+}
+
+.diaryTable {
+    width: calc(170px + 92px + 92px + 92px + 92px);
+}
+
+.diaryAreaCol {
+    width: 170px;
+}
+
+.diaryTierCol {
+    width: 92px;
+}
+
+.diaryTable tbody td {
+    cursor: pointer;
+    text-align: center;
+}
+
+.diaryTable tbody td.resourceTierUnavailable {
+    cursor: pointer;
+}
+
+.slayerQuestRequirement {
+    cursor: pointer;
+}
+
+.slayerQuestRequirement:hover {
+    text-decoration: underline;
+}
+
+.tileListTable th:first-child,
+.tileListTable td:first-child {
+    text-align: left;
+}
+
+.tileListTable th:not(:first-child),
+.tileListTable td:not(:first-child) {
+    text-align: center;
+}
+
+.tileListTable .tileStatusCheckbox {
+    display: block;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+.tileListTable tr.tileListUnlocked {
+    color: var(--unlocked-color);
+}
+
+.tileListTable tr.tileListOnBoard {
+    color: rgb(185, 48, 48);
+}
+
+.tileListTable tr.tileListUnavailable {
+    color: rgb(137, 137, 137);
+}
+
+.tileListTable tbody tr.tileListUnavailable {
+    cursor: pointer;
+}
+
+.tilePrereqPopover {
+    position: absolute;
+    box-sizing: border-box;
+    background: #d7c196;
+    border: 1px solid #5a5242;
+    border-top: 4px solid #6f6550;
+    border-left: 4px solid #6f6550;
+    border-right: 4px solid #241f18;
+    border-bottom: 4px solid #241f18;
+    color: #3a2a1a;
+    padding: 8px 10px;
+    text-align: left;
+    z-index: 20;
+}
+
+.tilePrereqTitle {
+    color: #3a2a1a;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.resourceInfoCaption {
+    margin-bottom: 6px;
+}
+
+.resourceInfoClarifications {
+    margin: 6px 0 0 18px;
+    padding: 0;
+}
+
+.resourceInfoClarifications li {
+    margin-bottom: 3px;
+}
+
+.tilePrereqList {
+    display: grid;
+    gap: 3px;
+}
+
+.tilePrereqItemClickable {
+    cursor: pointer;
+}
+
+.tilePrereqItemClickable:hover {
+    text-decoration: underline;
+}
+
+.tilePrereqQuestPoints {
+    align-items: center;
+    display: inline-flex;
+    gap: 5px;
+}
+
+.tilePrereqQuestPoints img {
+    height: 16px;
+    object-fit: contain;
+    width: 16px;
+}
+
+.tilePrereqItem.tileListUnlocked {
+    color: var(--unlocked-color);
+}
+
+.tilePrereqItem.tileListOnBoard {
+    color: rgb(185, 48, 48);
+}
+
+.tilePrereqItem.tileListUnavailable {
+    color: rgb(137, 137, 137);
+}
+
+.tileListRowJump {
+    animation: tileListRowJump 0.8s ease;
+}
+
+@keyframes tileListRowJump {
+    0% { outline: 2px solid #ffb84d; }
+    100% { outline: 2px solid transparent; }
+}
+
+.tileTypeButton {
+    width: var(--tile-menu-active-frame-size);
+    height: var(--tile-menu-active-frame-size);
+    padding: calc((var(--tile-menu-active-frame-size) - var(--tile-menu-icon-size)) / 2);
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.tileTypeButton img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.resourceTileButton img {
+    width: var(--resource-menu-icon-size);
+    height: var(--resource-menu-icon-size);
+    margin: calc((var(--tile-menu-icon-size) - var(--resource-menu-icon-size)) / 2);
+}
+
+.tileTypeButton:hover img,
+.tileTypeButton.activeTileTypeButton img {
+    filter: brightness(1.2);
+}
+
+
+@keyframes keyFlash {
+    0%   { background: rgb(160, 40, 40); }
+    25%  { background: #3d382d5a; }
+    50%  { background: rgb(160, 40, 40); }
+    75%  { background: #3d382d5a; }
+    100% { background: rgb(160, 40, 40); }
+}
+
+.flash {
+    animation: keyFlash 0.6s ease;
+}
