@@ -2046,7 +2046,7 @@ window.resourceTileData = [
             "Woodwork unlocks are not required to fuel hot air balloons"
         ],
         "headers": ["", "I", "II", "III", "IV", "V", "VI", "VII"],
-        "columnWidths": [130, 92, 92, 92, 116, 108, 100, 92],
+        "columnWidths": [130, 92, 92, 92, 116, 108, 108, 92],
         "rows": 
         [
             [
