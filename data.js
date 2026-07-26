@@ -1088,7 +1088,7 @@ window.resourceTileData = [
                 "",
                 "",
                 "Imp",
-                ""
+                "Stymphike"
             ],
             [
                 "# of traps",
@@ -1125,11 +1125,11 @@ window.resourceTileData = [
             [
                 "Big Net",
                 "",
-                "Mackerel, Cod, Bass",
+                "Mackerel, Cod, Bream, Bass",
                 "",
                 "",
                 "",
-                "",
+                "Leechfin",
                 ""
             ],
             [
@@ -1622,9 +1622,9 @@ window.resourceTileData = [
             [
                 "Other",
                 "",
-                "Cowbells",
+                "Cowbells, Candles",
                 "",
-                "Goblin wire, \nArtefacts",
+                "Goblin wire, Artefacts",
                 "Wall safes, Valuables",
                 "",
                 ""
@@ -1640,7 +1640,7 @@ window.resourceTileData = [
                 "Rooms VII, VIII"
             ],
             [
-                "Sorcerer’s Garden",
+                "Sorceress’s Garden",
                 "Winter",
                 "",
                 "Spring",
@@ -1905,11 +1905,11 @@ window.resourceTileData = [
                 "Stations",
                 "Range",
                 "Keg",
-                "Innoculation station",
-                "Salvaging station",
+                "Innoculation station, Salvaging station",
                 "Chum station",
-                "Advanced chum station",
-                "Chum spreader"
+                "Advanced chum station, Bosun's workbench",
+                "Chum spreader",
+                ""
             ],
             [
                 "Trawling net",
@@ -2050,7 +2050,7 @@ window.resourceTileData = [
         "rows": 
         [
             [
-                "Standard logs",
+                "Standard trees",
                 "Regular",
                 "Oak",
                 "Willow",
@@ -2060,7 +2060,7 @@ window.resourceTileData = [
                 "Redwood"
             ],
             [
-                "Hardwood logs",
+                "Hardwood trees",
                 "",
                 "",
                 "Teak",
@@ -2069,24 +2069,15 @@ window.resourceTileData = [
                 "Ironwood",
                 "Rosewood"
             ],
+
             [
-                "Sawmill",
-                "Regular",
-                "Oak",
-                "Teak",
-                "Mahogany",
-                "Camphor",
-                "Ironwood",
-                "Rosewood"
-            ],
-            [
-                "Special logs",
+                "Special trees",
                 "Achey",
                 "",
                 "Jatoba",
                 "Arctic Pine",
                 "Blisterwood",
-                "",
+                "Bloodwood",
                 ""
             ],
             [
@@ -2098,6 +2089,16 @@ window.resourceTileData = [
                 "Sulliuscep, Bruma",
                 "",
                 ""
+            ],
+            [
+                "Sawmill",
+                "Regular",
+                "Oak",
+                "Teak",
+                "Mahogany",
+                "Camphor",
+                "Ironwood",
+                "Rosewood"
             ],
             [
                 "Axe",
@@ -2276,9 +2277,10 @@ window.state = {
             { name: "Shades", combat: 30, slayer: null, quest: null, complete: false },
             { name: "Skeletons", combat: 15, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: null, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
             { name: "Wall beasts", combat: 30, slayer: 35, quest: null, complete: false },
             { name: "Wolves", combat: 20, slayer: null, quest: null, complete: false },
-            { name: "Zombies", combat: 10, slayer: null, quest: null, complete: false }
+            { name: "Zombies", combat: 10, slayer: null, quest: null, complete: false },
         ]
         },
 
@@ -2336,7 +2338,8 @@ window.state = {
             { name: "Trolls", combat: 60, slayer: null, quest: null, complete: false },
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
-            { name: "Werewolves", combat: 60, slayer: null, quest: 54, complete: false }
+            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Werewolves", combat: 60, slayer: null, quest: 54, complete: false },
         ]
         },
 
@@ -2387,8 +2390,9 @@ window.state = {
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "TzHaar", combat: null, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
             { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
-            { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false }
+            { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false },
         ]
         },
 
@@ -2438,6 +2442,7 @@ window.state = {
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "TzHaar", combat: null, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
             { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
             { name: "Waterfiends", combat: 75, slayer: null, quest: 181, complete: false },
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false }
@@ -2497,6 +2502,7 @@ window.state = {
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "TzHaar", combat: null, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
             { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
             { name: "Waterfiends", combat: 75, slayer: null, quest: 181, complete: false },
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false }
@@ -2553,6 +2559,7 @@ window.state = {
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "TzHaar", combat: null, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
             { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false }
         ]

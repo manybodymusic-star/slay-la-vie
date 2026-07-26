@@ -1,5 +1,5 @@
-const SAVE_KEY = "slaydy-save-v1";
-const BACKUP_DIRTY_KEY = "slaydy-backup-dirty-v1";
+const SAVE_KEY = "slaylavie-save-v1";
+const BACKUP_DIRTY_KEY = "slaylavie-backup-dirty-v1";
 
 let backupDirty = localStorage.getItem(BACKUP_DIRTY_KEY) === "1";
 
@@ -268,6 +268,12 @@ function updateSaveStatus(message = getSaveSummaryText())
 }
 
 
+function isResetShortcut(event)
+{
+    return event.shiftKey && (event.metaKey || event.ctrlKey);
+}
+
+
 function setupSaveControls()
 {
     const exportBtn = document.getElementById("exportSave");
@@ -287,7 +293,15 @@ function setupSaveControls()
         importInput.click();
     });
 
-    resetBtn.addEventListener("click", resetGame);
+    resetBtn.title = "Shift + Command/Ctrl + right-click to reset";
+
+    resetBtn.addEventListener("contextmenu", (event) => {
+        if (!isResetShortcut(event))
+            return;
+
+        event.preventDefault();
+        resetGame();
+    });
 
     importInput.addEventListener("change", () => {
         importSave(importInput.files[0]);
