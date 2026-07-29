@@ -529,8 +529,9 @@ th:first-child {
 
 #home {
     position: fixed;
-    top: 649px;
-    left: 1178px;
+    top: 71.38vh;
+    left: 62.53vw;
+    transform: translate(-50%, -50%);
 
     width: 44px;
     height: 44px;

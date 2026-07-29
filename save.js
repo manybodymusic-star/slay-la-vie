@@ -204,7 +204,7 @@ function exportSave()
     const date = new Date().toISOString().slice(0, 10);
 
     link.href = URL.createObjectURL(blob);
-    link.download = `slaydy-save-${date}.json`;
+    link.download = `save-la-vie${date}.json`;
     link.click();
     URL.revokeObjectURL(link.href);
     backupDirty = false;

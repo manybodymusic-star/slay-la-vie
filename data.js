@@ -2046,7 +2046,7 @@ window.resourceTileData = [
             "Woodwork unlocks are not required to fuel hot air balloons"
         ],
         "headers": ["", "I", "II", "III", "IV", "V", "VI", "VII"],
-        "columnWidths": [130, 92, 76, 92, 116, 108, 116, 92],
+        "columnWidths": [130, 92, 76, 92, 116, 108, 108, 92],
         "rows": 
         [
             [
@@ -2121,75 +2121,75 @@ window.state = {
     [
         // Turael
         {
-            name: "Turael",
-            combat: "None!",
-            slayer: null,
-            quest: null,
-            complete: false,
-            tasks: 
-            [
-                { name: "Banshees", combat: 20, slayer: 15, quest: 54, complete: false },
-                { name: "Bats", combat: 5, slayer: null, quest: null, complete: false },
-                { name: "Bears", combat: 13, slayer: null, quest: null, complete: false },
-                { name: "Birds", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Cave bugs", combat: 7, slayer: 7, quest: null, complete: false },
-                { name: "Cave crawlers", combat: 10, slayer: 10, quest: null, complete: false },
-                { name: "Cave slime", combat: 15, slayer: 17, quest: null, complete: false },
-                { name: "Cows", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Crawling hands", combat: null, slayer: 5, quest: 54, complete: false },
-                { name: "Dogs", combat: 15, slayer: null, quest: null, complete: false },
-                { name: "Dwarves", combat: 6, slayer: null, quest: null, complete: false },
-                { name: "Ghosts", combat: 13, slayer: null, quest: null, complete: false },
-                { name: "Goblins", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Icefiends", combat: 20, slayer: null, quest: null, complete: false },
-                { name: "Kalphites", combat: 15, slayer: null, quest: null, complete: false },
-                { name: "Lizards", combat: 22, slayer: 22, quest: null, complete: false },
-                { name: "Minotaurs", combat: 7, slayer: null, quest: null, complete: false },
-                { name: "Monkeys", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Rats", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Scorpions", combat: 7, slayer: null, quest: null, complete: false },
-                { name: "Skeletons", combat: 15, slayer: null, quest: null, complete: false },
-                { name: "Spiders", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Wolves", combat: 20, slayer: null, quest: null, complete: false },
-                { name: "Zombies", combat: 10, slayer: null, quest: null, complete: false }
-            ]
+        name: "Turael",
+        combat: "None!",
+        slayer: null,
+        quest: null,
+        complete: false,
+        tasks: 
+        [
+            { name: "Banshees", combat: 20, slayer: 15, quest: 54, complete: false },
+            { name: "Bats", combat: 5, slayer: null, quest: null, complete: false },
+            { name: "Bears", combat: 13, slayer: null, quest: null, complete: false },
+            { name: "Birds", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Cave bugs", combat: 7, slayer: 7, quest: null, complete: false },
+            { name: "Cave crawlers", combat: 10, slayer: 10, quest: null, complete: false },
+            { name: "Cave slime", combat: 15, slayer: 17, quest: null, complete: false },
+            { name: "Cows", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Crawling hands", combat: null, slayer: 5, quest: 54, complete: false },
+            { name: "Dogs", combat: 15, slayer: null, quest: null, complete: false },
+            { name: "Dwarves", combat: 6, slayer: null, quest: null, complete: false },
+            { name: "Ghosts", combat: 13, slayer: null, quest: null, complete: false },
+            { name: "Goblins", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Icefiends", combat: 20, slayer: null, quest: null, complete: false },
+            { name: "Kalphites", combat: 15, slayer: null, quest: null, complete: false },
+            { name: "Lizards", combat: 22, slayer: 22, quest: null, complete: false },
+            { name: "Minotaurs", combat: 7, slayer: null, quest: null, complete: false },
+            { name: "Monkeys", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Rats", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Scorpions", combat: 7, slayer: null, quest: null, complete: false },
+            { name: "Skeletons", combat: 15, slayer: null, quest: null, complete: false },
+            { name: "Spiders", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Wolves", combat: 20, slayer: null, quest: null, complete: false },
+            { name: "Zombies", combat: 10, slayer: null, quest: null, complete: false }
+        ]
         },
 
         // Spria
         {
-            name: "Spria",
-            combat: null,
-            slayer: null,
-            quest: 146,
-            complete: false,
-            tasks: 
-            [
-                { name: "Banshees", combat: 20, slayer: 15, quest: 54, complete: false },
-                { name: "Bats", combat: 5, slayer: null, quest: null, complete: false },
-                { name: "Bears", combat: 13, slayer: null, quest: null, complete: false },
-                { name: "Birds", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Cave bugs", combat: 7, slayer: 7, quest: null, complete: false },
-                { name: "Cave crawlers", combat: 10, slayer: 10, quest: null, complete: false },
-                { name: "Cave slime", combat: 15, slayer: 17, quest: null, complete: false },
-                { name: "Cows", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Crawling hands", combat: null, slayer: 5, quest: 54, complete: false },
-                { name: "Dogs", combat: 15, slayer: null, quest: null, complete: false },
-                { name: "Dwarves", combat: 6, slayer: null, quest: null, complete: false },
-                { name: "Ghosts", combat: 13, slayer: null, quest: null, complete: false },
-                { name: "Goblins", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Icefiends", combat: 20, slayer: null, quest: null, complete: false },
-                { name: "Kalphites", combat: 15, slayer: null, quest: null, complete: false },
-                { name: "Lizards", combat: 22, slayer: 22, quest: null, complete: false },
-                { name: "Minotaurs", combat: 7, slayer: null, quest: null, complete: false },
-                { name: "Monkeys", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Rats", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Scorpions", combat: 7, slayer: null, quest: null, complete: false },
-                { name: "Skeletons", combat: 15, slayer: null, quest: null, complete: false },
-                { name: "Sourhogs", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Spiders", combat: null, slayer: null, quest: null, complete: false },
-                { name: "Wolves", combat: 20, slayer: null, quest: null, complete: false },
-                { name: "Zombies", combat: 10, slayer: null, quest: null, complete: false }
-            ]
+        name: "Spria",
+        combat: null,
+        slayer: null,
+        quest: 146,
+        complete: false,
+        tasks: 
+        [
+            { name: "Banshees", combat: 20, slayer: 15, quest: 54, complete: false },
+            { name: "Bats", combat: 5, slayer: null, quest: null, complete: false },
+            { name: "Bears", combat: 13, slayer: null, quest: null, complete: false },
+            { name: "Birds", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Cave bugs", combat: 7, slayer: 7, quest: null, complete: false },
+            { name: "Cave crawlers", combat: 10, slayer: 10, quest: null, complete: false },
+            { name: "Cave slime", combat: 15, slayer: 17, quest: null, complete: false },
+            { name: "Cows", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Crawling hands", combat: null, slayer: 5, quest: 54, complete: false },
+            { name: "Dogs", combat: 15, slayer: null, quest: null, complete: false },
+            { name: "Dwarves", combat: 6, slayer: null, quest: null, complete: false },
+            { name: "Ghosts", combat: 13, slayer: null, quest: null, complete: false },
+            { name: "Goblins", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Icefiends", combat: 20, slayer: null, quest: null, complete: false },
+            { name: "Kalphites", combat: 15, slayer: null, quest: null, complete: false },
+            { name: "Lizards", combat: 22, slayer: 22, quest: null, complete: false },
+            { name: "Minotaurs", combat: 7, slayer: null, quest: null, complete: false },
+            { name: "Monkeys", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Rats", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Scorpions", combat: 7, slayer: null, quest: null, complete: false },
+            { name: "Skeletons", combat: 15, slayer: null, quest: null, complete: false },
+            { name: "Sourhogs", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Spiders", combat: null, slayer: null, quest: null, complete: false },
+            { name: "Wolves", combat: 20, slayer: null, quest: null, complete: false },
+            { name: "Zombies", combat: 10, slayer: null, quest: null, complete: false }
+        ]
         },
 
         // Krystilia
@@ -2297,7 +2297,7 @@ window.state = {
             { name: "Abyssal demons", combat: 85, slayer: 85, quest: "54 or 107", complete: false },
             { name: "Ankou", combat: 40, slayer: null, quest: null, complete: false },
             { name: "Basilisks", combat: 40, slayer: 40, quest: null, complete: false },
-            { name: "Bloodveld", combat: 50, slayer: 50, quest: 54, complete: false },
+            { name: "Bloodvelds", combat: 50, slayer: 50, quest: 54, complete: false },
             { name: "Blue dragons", combat: 65, slayer: null, quest: 17, complete: false },
             { name: "Brine rats", combat: 45, slayer: 47, quest: 123, complete: false },
             { name: "Cockatrice", combat: 25, slayer: 25, quest: null, complete: false },
@@ -2564,6 +2564,47 @@ window.state = {
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false }
         ]
         },
+
+        // Mortimer
+        {
+        name: "Mortimer",
+        combat: 100,
+        slayer: 70,
+        quest: null,
+        complete: false,
+        tasks:
+        [
+            { name: "Crawling hands", combat: null, slayer: 5, quest: 54, complete: false },
+            { name: "Cave crawlers", combat: 10, slayer: 10, quest: null, complete: false },
+            { name: "Cave crawlers", combat: 10, slayer: 10, quest: null, complete: false },
+            { name: "Rockslugs", combat: 20, slayer: 20, quest: null, complete: false },
+            { name: "Cockatrice", combat: 25, slayer: 25, quest: null, complete: false },
+            { name: "Pyrefiends", combat: 25, slayer: 30, quest: null, complete: false },
+            { name: "Infernal mages", combat: 40, slayer: 45, quest: 54, complete: false },
+            { name: "Bloodvelds", combat: 50, slayer: 50, quest: 54, complete: false },
+            { name: "Gryphons", combat: null, slayer: 51, quest: 177, complete: false },
+            { name: "Jellies", combat: 57, slayer: 52, quest: null, complete: false },
+            { name: "Custodian stalker", combat: null, slayer: 54, quest: 172, complete: false },
+            { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
+            { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
+            { name: "Cave horrors", combat: 85, slayer: 58, quest: 98, complete: false },
+            { name: "Aberrant spectres", combat: 65, slayer: 60, quest: 54, complete: false },
+            { name: "Basilisks", combat: 40, slayer: 40, quest: null, complete: false },
+            { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false },
+            { name: "Dust devils", combat: 70, slayer: 65, quest: 77, complete: false },
+            { name: "Kurask", combat: 65, slayer: 70, quest: null, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Gargoyles", combat: 80, slayer: 75, quest: 54, complete: false },
+            { name: "Aquanites", combat: null, slayer: 78, quest: null, complete: false },
+            { name: "Nechryael", combat: 85, slayer: 80, quest: 54, complete: false },
+            { name: "Drakes", combat: null, slayer: 84, quest: null, complete: false },
+            { name: "Abyssal demons", combat: 85, slayer: 85, quest: "54 or 107", complete: false },
+            { name: "Dark beasts", combat: 90, slayer: 90, quest: 89, complete: false },
+            { name: "Araxytes", combat: null, slayer: 92, quest: 54, complete: false },
+            { name: "Smoke devils", combat: 85, slayer: 93, quest: null, complete: false },
+            { name: "Hydras", combat: null, slayer: 95, quest: null, complete: false },
+        ]
+        }
     ],
 
     camera: {x: 0, y: 0, zoom: 1, returnHome: false},
