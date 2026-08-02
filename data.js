@@ -629,15 +629,15 @@ const prereqs =
         c: [174,202,242,228]
     },
     {
-        r: 179,                            // Red reef: tile 179
+        r: 179,                            
         c: [177,207]                
     },
     {
-        r: 325,                            // Blood moon rises: tile 325 (last quest)
+        r: 325,                            
         c: [149,145,204,207,228,221]
     },
     {
-        r: 326,
+        r: 326,                            // Fallen from Grace (last quest)
         c: [174,210,235]
     },
     {                                      // Beginning of miniquests
@@ -1487,7 +1487,7 @@ window.resourceTileData = [
                 "Barronite",
                 "Pay-dirt",
                 "Sunstone",
-                "Lunar, Sunstone",
+                "Lunar",
                 "",
                 "Infernal shale"
             ],
