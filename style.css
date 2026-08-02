@@ -158,6 +158,9 @@ tr:has(input:checked)
     --table-header-bg: #433c31;
     --table-header-text: #ffb84d;
     --table-header-hover-bg: #4a4436;
+    --sidebar-bottom-clearance: 24px;
+    --slayer-menu-top-offset: 90px;
+    --tile-menu-top-offset: 140px;
     --slayer-title-width: calc(
         var(--slayer-task-col) -
         var(--slayer-master-summary-x-padding) -
@@ -167,7 +170,7 @@ tr:has(input:checked)
     --tile-menu-icon-size: 32px;
     --tile-menu-active-frame-size: 40px;
     --resource-menu-icon-size: 38px;
-    --resource-menu-bottom-clearance: 14px;
+    --resource-menu-bottom-clearance: var(--sidebar-bottom-clearance);
     --tile-icon-row-width: calc(
         var(--tile-menu-active-frame-size) +
         var(--tile-menu-active-frame-size) +
@@ -431,7 +434,7 @@ td:first-child {
     position: fixed;
     left: 0px;
     top: 0px;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
 }
 
@@ -478,7 +481,7 @@ thead th {
 .slayerContent {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 90px);
+    height: calc(100dvh - var(--slayer-menu-top-offset) - var(--sidebar-bottom-clearance));
     min-height: 0;
     overflow: hidden;
     padding-bottom: 0;
@@ -489,7 +492,8 @@ thead th {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
-    padding-bottom: 0;
+    padding-bottom: var(--sidebar-bottom-clearance);
+    scroll-padding-bottom: var(--sidebar-bottom-clearance);
 }
 
 body {
@@ -757,7 +761,7 @@ th:first-child {
     max-width: calc(100vw - 16px);
     display: none;
     margin-top: 0;
-    max-height: calc(100vh - 92px);
+    max-height: calc(100dvh - 92px - var(--sidebar-bottom-clearance));
     overflow: visible;
 }
 
@@ -812,7 +816,7 @@ th:first-child {
 }
 
 #resourceTilePanel > details[open] {
-    max-height: calc(100vh - 140px - var(--resource-menu-bottom-clearance));
+    max-height: calc(100dvh - var(--tile-menu-top-offset) - var(--sidebar-bottom-clearance));
     overflow: visible;
 }
 
@@ -825,9 +829,10 @@ th:first-child {
 .resourceTableWrapper {
     align-self: flex-end;
     box-sizing: border-box;
-    max-height: calc(100vh - 140px - var(--resource-menu-bottom-clearance));
+    max-height: calc(100dvh - var(--tile-menu-top-offset) - var(--sidebar-bottom-clearance));
     overflow: auto;
     padding-bottom: var(--resource-menu-bottom-clearance);
+    scroll-padding-bottom: var(--resource-menu-bottom-clearance);
 }
 
 .resourceTable {
@@ -900,8 +905,11 @@ th:first-child {
 }
 
 .tileListWrapper {
-    max-height: calc(100vh - 140px);
+    box-sizing: border-box;
+    max-height: calc(100dvh - var(--tile-menu-top-offset) - var(--sidebar-bottom-clearance));
     overflow: auto;
+    padding-bottom: var(--sidebar-bottom-clearance);
+    scroll-padding-bottom: var(--sidebar-bottom-clearance);
 }
 
 .tileListTable {
