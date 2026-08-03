@@ -293,13 +293,12 @@ function setupSaveControls()
         importInput.click();
     });
 
-    resetBtn.title = "Shift + Command/Ctrl + right-click to reset";
+    resetBtn.title = "Shift + Command/Ctrl + click to reset";
 
-    resetBtn.addEventListener("contextmenu", (event) => {
-        if (!isResetShortcut(event))
+    resetBtn.addEventListener("click", (event) => {
+        if (event.button !== 0 || !isResetShortcut(event))
             return;
 
-        event.preventDefault();
         resetGame();
     });
 
