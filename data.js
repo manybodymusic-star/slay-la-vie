@@ -1463,7 +1463,7 @@ window.resourceTileData = [
         [
             [
                 "Primary",
-                "Copper, blurite",
+                "Copper, Blurite",
                 "Iron",
                 "",
                 "Mithril",
@@ -1838,10 +1838,10 @@ window.resourceTileData = [
             [
                 "Ship",
                 "Raft",
-                "",
                 "Skiff",
                 "",
                 "Sloop",
+                "",
                 "",
                 ""
             ],
@@ -2281,7 +2281,7 @@ window.state = {
             { name: "Shades", combat: 30, slayer: null, quest: null, complete: false },
             { name: "Skeletons", combat: 15, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: null, complete: false },
-            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 325, complete: false },
             { name: "Wall beasts", combat: 30, slayer: 35, quest: null, complete: false },
             { name: "Wolves", combat: 20, slayer: null, quest: null, complete: false },
             { name: "Zombies", combat: 10, slayer: null, quest: null, complete: false },
@@ -2342,7 +2342,7 @@ window.state = {
             { name: "Trolls", combat: 60, slayer: null, quest: null, complete: false },
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
-            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 325, complete: false },
             { name: "Werewolves", combat: 60, slayer: null, quest: 54, complete: false },
         ]
         },
@@ -2394,7 +2394,7 @@ window.state = {
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "TzHaar", combat: null, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
-            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 325, complete: false },
             { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false },
         ]
@@ -2446,7 +2446,7 @@ window.state = {
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "TzHaar", combat: null, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
-            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 325, complete: false },
             { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
             { name: "Waterfiends", combat: 75, slayer: null, quest: 181, complete: false },
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false }
@@ -2506,7 +2506,7 @@ window.state = {
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "TzHaar", combat: null, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
-            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 325, complete: false },
             { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
             { name: "Waterfiends", combat: 75, slayer: null, quest: 181, complete: false },
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false }
@@ -2563,7 +2563,7 @@ window.state = {
             { name: "Turoth", combat: 60, slayer: 55, quest: null, complete: false },
             { name: "TzHaar", combat: null, slayer: null, quest: null, complete: false },
             { name: "Vampyres", combat: 35, slayer: null, quest: 54, complete: false },
-            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 325, complete: false },
             { name: "Warped creatures", combat: null, slayer: 56, quest: 158, complete: false },
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false }
         ]
@@ -2597,7 +2597,7 @@ window.state = {
             { name: "Wyrms", combat: null, slayer: 62, quest: null, complete: false },
             { name: "Dust devils", combat: 70, slayer: 65, quest: 77, complete: false },
             { name: "Kurask", combat: 65, slayer: 70, quest: null, complete: false },
-            { name: "Venators", combat: null, slayer: 75, quest: 180, complete: false },
+            { name: "Venators", combat: null, slayer: 75, quest: 325, complete: false },
             { name: "Gargoyles", combat: 80, slayer: 75, quest: 54, complete: false },
             { name: "Aquanites", combat: null, slayer: 78, quest: null, complete: false },
             { name: "Nechryael", combat: 85, slayer: 80, quest: 54, complete: false },
