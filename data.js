@@ -637,11 +637,11 @@ const prereqs =
         c: [149,145,204,207,228,221]
     },
     {
-        r: 326,                            // Fallen from Grace (last quest)
+        r: 326,                            
         c: [174,210,235]
     },
     {
-        r: 328,
+        r: 328,                            // Crab Quest (9/11/26)
         c: [249,214]
     },
     {                                      // Beginning of miniquests
@@ -965,7 +965,7 @@ window.resourceTileData = [
         "caption": "Fauna tiles allow one to trap animals and creatures using Hunter and cook, craft with, or otherwise process their remains.",
         "clarifications": ["Requisite Woodwork unlocks are required to fashion traps from logs"],
         "headers": ["", "I", "II", "III", "IV", "V", "VI", "VII"],
-        "columnWidths": [130, 92, 92, 92, 116, 116, 116, 108],
+        "columnWidths": [130, 92, 92, 104, 104, 116, 116, 108],
         "rows": 
         [
             [
@@ -1091,7 +1091,7 @@ window.resourceTileData = [
             [
                 "Other",
                 "",
-                "Rabbit",
+                "Sandworms, Rabbit",
                 "",
                 "",
                 "Goat pit",
@@ -2218,7 +2218,6 @@ window.state = {
             { name: "Black dragons", combat: null, slayer: null, quest: null, complete: false },
             { name: "Black knights", combat: null, slayer: null, quest: null, complete: false },
             { name: "Bloodveld", combat: null, slayer: 50, quest: null, complete: false },
-            { name: "Boss", combat: null, slayer: null, quest: null, complete: false },
             { name: "Chaos druids", combat: null, slayer: null, quest: null, complete: false },
             { name: "Dark warriors", combat: null, slayer: null, quest: null, complete: false },
             { name: "Dust devils", combat: null, slayer: 65, quest: null, complete: false },
@@ -2422,7 +2421,6 @@ window.state = {
             { name: "Black dragons", combat: 80, slayer: null, quest: 17, complete: false },
             { name: "Bloodveld", combat: 50, slayer: 50, quest: 54, complete: false },
             { name: "Blue dragons", combat: 65, slayer: null, quest: "17 and 45", complete: false },
-            { name: "Boss", combat: null, slayer: null, quest: null, complete: false },
             { name: "Brine rats", combat: 45, slayer: 47, quest: 123, complete: false },
             { name: "Cave kraken", combat: 80, slayer: 87, quest: null, complete: false },
             { name: "Dagannoth", combat: 75, slayer: null, quest: 63, complete: false },
@@ -2477,7 +2475,6 @@ window.state = {
             { name: "Black dragons", combat: 80, slayer: null, quest: 17, complete: false },
             { name: "Bloodveld", combat: 50, slayer: 50, quest: 54, complete: false },
             { name: "Blue dragons", combat: 65, slayer: null, quest: "17 and 45", complete: false },
-            { name: "Boss", combat: null, slayer: null, quest: null, complete: false },
             { name: "Brine rats", combat: 45, slayer: 47, quest: 123, complete: false },
             { name: "Cave horrors", combat: 85, slayer: 58, quest: 98, complete: false },
             { name: "Cave kraken", combat: 80, slayer: 87, quest: null, complete: false },
@@ -2537,7 +2534,6 @@ window.state = {
             { name: "Black dragons", combat: 80, slayer: null, quest: 17, complete: false },
             { name: "Bloodveld", combat: 50, slayer: 50, quest: 54, complete: false },
             { name: "Blue dragons", combat: 65, slayer: null, quest: "17 and 45", complete: false },
-            { name: "Boss", combat: null, slayer: null, quest: null, complete: false },
             { name: "Cave horrors", combat: 85, slayer: 58, quest: 98, complete: false },
             { name: "Cave kraken", combat: 80, slayer: 87, quest: null, complete: false },
             { name: "Dagannoth", combat: 75, slayer: null, quest: 63, complete: false },
