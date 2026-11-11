@@ -220,6 +220,13 @@ function getLockedTileTextColor(tile) {
 }
 
 
+const warnedTileColors = new Set();
+
+function findTileColorKey(values, value) {
+    const normalized = String(value ?? "").trim().toLowerCase();
+    return Object.keys(values).find(key => key.toLowerCase() === normalized);
+}
+
 function renderTile(tile) 
 {
     push();
@@ -244,16 +251,25 @@ function renderTile(tile)
 
     // label
     let label;
-    if (tile.type === 'Resource') {
+    const type = findTileColorKey(window.tileColors, tile.type);
+    const palette = window.tileColors[type] ?? {};
+    const tier = findTileColorKey(palette, tile.tier);
+
+    if (type === 'Resource') {
         label = tile.name + " (" + tile.tier.trim() + ")";
-    } else if (tile.type === 'Diary') {
+    } else if (type === 'Diary') {
         label = tile.name + "\n(" + tile.tier.trim() + ")";
     } else {
         label = tile.name;
     }
 
     // color
-    const [h, s, b] = window.tileColors[tile.type][tile.tier.trim()];
+    const color = palette[tier];
+    if (!color && !warnedTileColors.has(tile.id)) {
+        warnedTileColors.add(tile.id);
+        console.warn("Unknown tile color:", tile.id, tile.name, tile.type, tile.tier);
+    }
+    const [h, s, b] = color ?? [0, 0, 65];
     let alpha = (tile.unlocked === false) ? 100 : 35;
 
     // =========================
