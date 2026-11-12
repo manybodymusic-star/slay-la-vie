@@ -2078,14 +2078,14 @@ window.resourceTileData = [
                 ""
             ],
             [
-                "Shortcuts",
-                "Stones",
-                "Rocks, Monkey bars",
-                "Walls, Windows, Railings, Fences, Logs",
-                "Tunnels, Holes, Caves, Grapple",
-                "Cracks, Crevices",
-                "Pipes, Strange floor",
-                "Pillars, Ropes, Vines, Chains"
+                "Shortcuts / Areas",
+                "Levels 1-25",
+                "Levels 26-40",
+                "Levels 41-50",
+                "Levels 51-60",
+                "Levels 61-69",
+                "Levels 70-79",
+                "Levels 80-99"
             ]
         ]
     },
