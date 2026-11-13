@@ -690,6 +690,10 @@ const prereqs =
         r: 339,
         c: [263,256]
     },
+    {
+        r: 340,
+        c: [228]
+    },
     {                                      // Most recent quest:   A Shell of a Friend (11/11/26)
         r: 341,
         c: [54,18,221,242]
@@ -1016,11 +1020,11 @@ window.resourceTileData = [
         [
             [
                 "Bird Snare",
-                "Crimson swift",
-                "Golden warbler",
-                "Copper longtail",
-                "Cerullian twitch",
-                "Tropical wagtail",
+                "Crimson swift, Honey buzzard, Golden warbler",
+                "Copper longtail, Cerulean twitch",
+                "Black honey buzzard, Tropical wagtail",
+                "",
+                "",
                 "",
                 ""
             ],
@@ -1055,8 +1059,8 @@ window.resourceTileData = [
                 "Lucky"
             ],
             [
-                "Butterflies",
-                "",
+                "Insects",
+                "Wasps, Killer wasps",
                 "Ruby harvest",
                 "Sapphire glacialis",
                 "Snowy \nkight",
